@@ -97,8 +97,8 @@ exports.signInUser = function(req,res){
 var currDate = new Date();
 currDate.setHours(currDate.getHours() + 2);
 var newDonation = new Donation({
-      "name" : "Thabo	",
-      "user_id" : "57abe409f63860c017ee1534",
+      "name" : "Thabo",
+      "user_id" : "57aba32ab5352711007db052",
       "surname" : "Ngubane",
       "email" : "ngubanethabo@gmail.com",
       "contact_number" : "0786190064",
