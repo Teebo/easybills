@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Teebo",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.1",
@@ -18,11 +18,11 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Teebo/paybills.git"
+    "url": "git+https://github.com/Teebo/easybills.git"
   },
   "bugs": {
-    "url": "https://github.com/Teebo/paybills/issues"
+    "url": "https://github.com/Teebo/easybills/issues"
   },
-  "homepage": "https://github.com/Teebo/paybills#readme",
+  "homepage": "https://github.com/Teebo/easybills#readme",
   "description": ""
 }

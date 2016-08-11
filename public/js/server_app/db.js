@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //mongodb connection string
-var dbURI = 'mongodb://127.0.0.1/moneyClub';
+var dbURI = 'mongodb://Teebo:Thabo!123@ds153745.mlab.com:53745/easybills';
 
 //connect to mongodb
 mongoose.connect(dbURI);
