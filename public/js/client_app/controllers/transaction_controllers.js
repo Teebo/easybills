@@ -36,6 +36,10 @@ theMoneyApp
 					 		 });
 					 }
 
+						$scope.goBack = function(){
+			 		 	$window.history.back();
+			 		 }
+
 			 })
 			 /*
 			 .controller('rescheduleController',function($scope,$http,$routeParams,authenticate,$httpParamSerializerJQLike,$location){
