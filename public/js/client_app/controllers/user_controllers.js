@@ -7,7 +7,7 @@ theMoneyApp
 		  })
 		  .controller('signInController',function($scope,$http,$location,authenticate){
 		  		$scope.submitForm = function(){
-		  			$http.post('http://127.0.0.1:3000/sign_in',$scope.loginUser)
+		  			$http.post('https://easybillssa.herokuapp.com/sign_in',$scope.loginUser)
 		  				 .success(function(res){
 		  				 	console.log("Recieved login response"+ res.token);
 		  				 	authenticate.saveToken(res.token);
@@ -37,7 +37,7 @@ theMoneyApp
 		  		
 		//Double check if form is valid
 		$scope.submitForm = function(isValid){
-		  			$http.post('http://127.0.0.1:3000/sign_up',$scope.registerUser)
+		  			$http.post('https://easybillssa.herokuapp.com/sign_up',$scope.registerUser)
 		  				 .success(function(res){
 		  				 	console.log("Got response from server");
 		  				 	authenticate.saveToken(res.token);
