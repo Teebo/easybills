@@ -1,0 +1,148 @@
+<div class="container container-margin-top">
+
+      <div class="row">
+            <div class="col-md-4 col-md-push-1" style="margin-bottom: 2%">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div class="btn-group" role="group">
+                    <a href="#/sign_in"><input type="button" value="Sign In"></a>
+                  </div>
+                  <div class="btn-group" role="group">
+                    <a href="#/sign_up"><input type="button" value="Sign Up"></a>
+                  </div>
+                </div>
+            </div>
+      </div>
+		<form name="userForm" ng-submit="submitForm(userForm);" novalidate>
+					
+			<div class="container" >
+                  <div class="row" ng-show="userForm.$valid">
+                    
+                      <div id="title-row" class="row alert alert-success" ng-hide="duplicateValidator">
+                          <li class="fa fa-check-circle fa-5x"></li><span style="font-size : 200%;"> Form Valid</span>
+                      </div>
+                
+                  </div>
+									<div class="row">
+
+										<div id="title-row" class="row alert alert-danger" ng-show="duplicateValidator">
+											<h4>Please correct the following errors before you continue</h4>
+											<ul>
+												<li style="list-style-type : circle;margin-left:2%;" ng-repeat="errorItem in errorObject">
+														{{errorItem}}
+												</li>
+											</ul>
+										</div>	
+									</div>				
+					<div class="row">
+					    <div class="col-md-6 form-group" ng-class="{'has-error' : userForm.name.$invalid && userForm.name.$touched }">
+							<input type="text" placeholder="Name" name="name"  class="form-control" ng-model="registerUser.name" required ng-minlength="3" ng-maxlength="10">
+		                  <div class="help-block" ng-messages = "userForm.name.$error" ng-if="userForm.name.$touched">
+		                    <p ng-message="required">Name is required</p>
+		                    <p ng-message="minlength">Should be at least 3</p>
+		                    <p ng-message="maxlength">Should be less than 10</p>
+		                  </div>  							
+						</div>
+						<div class="col-md-6 form-group" ng-class="{'has-error' : userForm.surname.$invalid && userForm.surname.$touched }">
+							 <input type="text" placeholder="Surname" class="form-control" name="surname" ng-model="registerUser.surname" required ng-minlength="3" ng-maxlength="10">
+		                  <div class="help-block" ng-messages = "userForm.surname.$error" ng-if="userForm.surname.$touched">
+		                    <p ng-message="required">Surname is required</p>
+		                    <p ng-message="minlength">Should be at least 3</p>
+		                    <p ng-message="maxlength">Should be less than 10</p>
+		                  </div> 							 
+					    </div>
+					</div>	
+			
+            			 
+					<div class="row">
+						<div class="col-md-6  form-group" ng-class="{'has-error' : userForm.username.$invalid && userForm.username.$touched }">
+							<input type="text" placeholder="Username" name="username" class="form-control" ng-model="registerUser.username" required ng-minlength="3" ng-maxlength="10">
+		                  <div class="help-block" ng-messages = "userForm.username.$error" ng-if="userForm.username.$touched">
+		                    <p ng-message="required">Username is required</p>
+		                    <p ng-message="minlength">Should be at least 3</p>
+		                    <p ng-message="maxlength">Should be less than 10</p>
+		                  </div>							
+						</div>
+						<div class="col-md-6  form-group" ng-class="{'has-error' : userForm.password.$invalid && userForm.password.$touched,'has-success' : userForm.password.$valid && userForm.password.$touched }">
+							 <input type="password" placeholder="Password" name="password" class="form-control" ng-model="registerUser.password" required ng-minlength="7" ng-maxlength="16">
+		                  <div class="help-block" ng-messages = "userForm.password.$error" ng-if="userForm.password.$touched">
+		                    <p ng-message="required">Password is required</p>
+		                    <p ng-message="minlength">Should be at least 7</p>
+		                    <p ng-message="maxlength">Should be 16</p>
+
+		                  </div>							 
+					    </div>
+					</div>	
+
+					<div class="row">
+					    <div class="col-md-6  form-group" ng-class="{'has-error' : userForm.cpassword.$invalid && userForm.cpassword.$touched,'has-success' : userForm.cpassword.$valid && userForm.cpassword.$touched  }">
+							<input type="password" placeholder="Confirm Password" name="cpassword" class="form-control" ng-model="registerUser.cpassword" required compare-to="registerUser.password" >
+		                  <div class="help-block" ng-messages = "userForm.cpassword.$error" ng-if="userForm.cpassword.$touched">
+		                  	<p ng-message="required">You need to confirm password</p>
+		                    <p ng-message="compareTo">Password does not match the one above</p>
+
+		                  </div>								
+						</div>
+						<div class="col-md-6  form-group" ng-class="{'has-error' : userForm.email.$invalid && userForm.email.$touched}">
+							 <input type="email" placeholder="Email Address" name="email" class="form-control" ng-model="registerUser.email" required>
+	                    <div class="help-block" ng-messages = "userForm.email.$error" ng-if="userForm.email.$touched">
+	                      <p ng-message="required">Email Required</p> 
+	                      <p ng-message="email">Email not valid</p>   
+	                    </div> 							 
+					    </div>
+					</div>	
+			
+            			 
+					<div class="row">
+						<div class="col-md-6  dropdown form-group" ng-class="{'has-error' : userForm.bank.$invalid && userForm.bank.$touched}">
+							<h4><small><strong>Select Bank, Hold Ctrl to select more than one</strong></small></h4>
+						  <select class="form-control" name="back" ng-model="registerUser.bank" multiple required>
+						  	<option>FNB</option>
+						  	<option>Absa</option>
+						  	<option>Nedbank</option>
+						  	<option>Bidvest</option>
+						  	<option>Capitec</option>
+						  </select>
+	                    <div class="help-block" ng-messages = "userForm.bank.$error" ng-if="userForm.bank.$touched">
+	                          <p ng-message="required">Select at least one bank</p>
+	                    </div> 						  
+						</div>
+						<div class="col-md-6  form-group" ng-class="{'has-error' : userForm.accountHolder.$invalid && userForm.accountHolder.$touched}">
+							 <input type="text" placeholder="Account Holder" name="accountHolder"class="form-control" ng-model="registerUser.accountHolder" required ng-minlength = "3">
+		                    <div class="help-block" ng-messages = "userForm.accountHolder.$error" ng-if="userForm.accountHolder.$touched">
+		                          <p ng-message="required">Account Holder is required</p>
+		                          <p ng-message="minlength">Must be at least 3</p>
+		                    </div> 							 
+					    </div>
+					</div>	
+					
+					<div class="row">
+
+						<div class="col-md-6 form-group" ng-class="{'has-error' : userForm.accountNumber.$invalid && userForm.accountNumber.$touched}">
+							<h4><small><strong>Account number for the account you use the most</strong></small></h4>
+							<input type="text" placeholder="Account Number" name="accountNumber" class="form-control" ng-model="registerUser.accountNumber" required ng-minlength = "10" ng-maxlength="10" ng-pattern="/^[0-9]+$/">
+		                    <div class="help-block" ng-messages = "userForm.accountNumber.$error" ng-if="userForm.accountNumber.$touched">
+		                          <p ng-message="required">Account Number is required</p>
+		                          <p ng-message="minlength">Must be 10</p>
+		                          <p ng-message="maxlength">Must be 10</p>
+		                          <p ng-message="pattern">Must be numbers</p>
+		                    </div> 							
+						</div>
+						<div class="col-md-6 form-group" ng-class="{'has-error' : userForm.contactNumber.$invalid && userForm.contactNumber.$touched}">
+							<input type="text" placeholder="Contact Number" name="contactNumber" class="form-control" ng-model="registerUser.contactNumber" required ng-minlength = "10" ng-maxlength="10" ng-pattern="/^[0-9]+$/">
+		                    <div class="help-block" ng-messages = "userForm.contactNumber.$error" ng-if="userForm.contactNumber.$touched">
+		                          <p ng-message="required">Account Number is required</p>
+		                          <p ng-message="minlength">Must be 10</p>
+		                          <p ng-message="maxlength">Must be 10</p>
+		                          <p ng-message="pattern">Must be numbers</p>
+		                    </div> 							
+						</div>						
+					</div>				
+					
+					<div>
+						<input type="submit" ng-disabled="userForm.$invalid" value="Submit">
+					</div>
+			 </div>			
+    	</form>		
+
+
+</div>

@@ -1,0 +1,57 @@
+<div class="container container-margin-top">
+<div class="row"  ng-show="checkCurrentUser">
+	<div class="col-md-12">
+		<div id="title-row" class="row alert alert-warning">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<li class="fa fa-warning fa-3x"></li>
+			<h4>You cannot make a donation to yourself.</h4>
+		</div>	
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+	
+		<h1>Donate</h1>
+		<div class="container table-responsive ">
+			<div class="row">
+				<div class="col-md-12">
+						<table class="table table-striped hover table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Surname</th>
+								<th>Email</th>
+								<th>Contact Number</th>
+								<th>Bank</th>
+								<th>Account Holder</th>
+								<th>Account Number</th>
+								<th>Amount Needed</th>
+								<th>Time Posted</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="donateUser in donateUsers">
+								<td>{{donateUser.name | capitalize}}</td>
+								<td>{{donateUser.surname | capitalize}}</td>
+								<td>{{donateUser.email}}</td>
+								<td>{{donateUser.contact_number}}</td>
+								<td>{{donateUser.bank | uppercase}}</td>
+								<td>{{donateUser.account_holder | capitalize}}</td>
+								<td>{{donateUser.account_number}}</td>
+								<td>{{donateUser.amount_needed | currency : "R"}}</td>
+								<td>{{donateUser.time_posted}}</td>
+								<td>
+									<a href="#/donate_to/{{donateUser.user_id}}" class="btn btn-success btn-md active" role="button">Donate</a>						
+								</td>
+							</tr>				
+						</tbody>
+					</table>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

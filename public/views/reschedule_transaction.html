@@ -1,0 +1,23 @@
+
+<div class="container container-margin-top">
+<div class="row">
+    <div class="col-md-12">
+        <div id="title-row" class="row alert alert-info" ng-show="cancelStatus">
+                <h3>{{alertMessage}}</h3>
+                </li><span style="font-size : 110%;"> Go to your transactions</span>          
+        </div>	
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 well">
+		<h3>Select reschedule time for today <small> (12 Hour Clock Format)</small></h3>
+            <div class="form-group">
+                <input type="time" class="input-lg" ng-model="reschedule.theTime">
+            </div>
+
+            <button type="button" class="btn btn-warning btn-lg btn-block" ng-click="reschedule();">Reshedule</button>
+  
+    </div>
+</div>
+</div>

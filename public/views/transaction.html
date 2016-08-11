@@ -1,0 +1,43 @@
+<div class="container container-margin-top">
+<div class="row ">
+	<div class="col-md-12">
+		<h1>My Transactions</h1>
+		<div class="container table-responsive">
+		<table class="table table-striped hover table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Donatee Name</th> <th>Donatee Email</th> <th>Donatee Contact</th> <th>Donator Name</th>
+					<th>Donator Email</th> <th>DonatorContact</th> <th>Donation Amount</th> <th>Donation Time</th> <th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="transaction in transactions">
+					<td>{{transaction.receiver_name | capitalize}}</td> 
+					<td>{{transaction.receiver_email}}</td> 
+					<td>{{transaction.receiver_contact_number}}</td> 
+					<td>{{transaction.donator_name | capitalize}}</td>
+					<td>{{transaction.donator_email}}</td> 
+					<td>{{transaction.donator_contact_number}}</td> 
+					<td>{{transaction.transaction_amount | currency : "R"}}</td>
+					 <td>{{transaction.donation_time}}</td> <td>
+					
+					  <div class="dropup">
+					    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Transaction
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu action-button-styles" id="action-button">
+					      <li><a ng-show="{{confirmBoolean}}" href="#/confirm/transaction/{{transaction._id}}">Confirm</a></li>
+					      <li><a href="#/transactions/cancel/{{transaction._id}}">Cancel</a></li>
+					    </ul>
+					  </div>						
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		</div>
+	
+	</div>
+	
+</div>
+</div>
+

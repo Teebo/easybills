@@ -1,0 +1,109 @@
+<div class="container container-margin-top">
+
+<div class="row">
+   <div class="col-md-12">
+			<div id="title-row" class="row alert alert-success" ng-show="donateStatus">
+					<li class="fa fa-check-circle fa-5x"></li><span style="font-size : 200%;"> Successfully made donation to {{donateUser.name | capitalize}}</span>
+			</div>	
+	 </div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-push-1">
+		<h1>Donate to {{donateUser.name | capitalize}} {{donateUser.surname | capitalize}}</h1>
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+						<div class="well well-lg">
+							<!--<div class="row">
+								<div class="col-md-6">
+									<h3>{{donateUser.name}}'s Details</h3>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-8">
+									<ul class="fa-ul">
+										<li><i style="font-size : 450%;margin-left:1%;" class="fa fa-mobile-phone fa-3x"></i><span style="font-size : 200%;font-family: verdana;">&nbsp;&nbsp;&nbsp;{{donateUser.contact_number}}</span></li>
+										<li><i class="fa fa-institution fa-3x"></i><span><span style="font-size : 200%;font-family: verdana;">&nbsp;{{donateUser.bank}}</span></li>
+										<li><i style="font-size : 350%;" class="fa fa-user fa-3x"></i><span style="font-size : 200%;font-family: verdana;">&nbsp;&nbsp;{{donateUser.account_holder}}</span></li>
+
+										<li><i style="font-size : 250%;" class="fa fa-credit-card-alt fa-3x"></i><span><span style="font-size : 200%;font-family: verdana;">&nbsp;{{donateUser.account_number}}</span></li>
+										<li><i class="fa fa-money fa-3x"></i><span><span style="font-size : 200%;font-family: verdana;">  {{donateUser.amount_needed | currency : "R"}}</span></li>
+																																								
+									</ul>
+								</div>
+							</div>
+							<div class="row">
+								<button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#donateModal">Donate</button>
+							</div>-->
+							  <div class="row">
+									 <div class="col-md-6  form-group">
+										 	<button type="button" class="btn btn-info btn-md btn-block" ng-click="showAmountBlock();">Donate Proportion</button>
+									 </div>									   
+											<div class="col-md-6  form-group" ng-class="{'has-error' : frmAmount.donationAmount.$invalid && frmAmount.donationAmount.$touched }" ng-show="amountInputs">
+													<div class="{{alertClass}}">
+														<li class="fa fa-warning fa-2x"></li>
+														<h4><strong>{{alertHead}}</strong></h4>
+														<p>{{alertMessage}}</p>
+													</div>
+													<form name="frmAmount" novalidate>														
+															<div class="input-group">
+																	<span class="input-group-addon">R</span>
+																	<input type="text" placeholder="Donation Amount" name="donationAmount" class="form-control" ng-model="donateUser.donationAmount" required ng-minlength="3" ng-pattern="/^[0-9]+$/" validate-amount="500" greater-amount ="donateUser.amountNeeded">
+																	<span class="input-group-addon">.00</span>
+															</div>
+															<div class="help-block" ng-messages = "frmAmount.donationAmount.$error" ng-if="frmAmount.donationAmount.$touched">
+																<p ng-message="required">Amount is required</p>
+																<p ng-message="minlength">Amount should contain at least 3 figures</p>
+																<p ng-message="pattern">Amount should be in numeric format eg. 500</p>
+																<div class="alert alert-danger" ng-message="validateAmount">You cannot donate an amount less than R500</div>
+															</div>	
+													</form>	
+													<div class="row" style="margin-top:2%;">
+															<div class="col-md-6 form-group">
+																<button type="button" class="btn btn-success btn-md btn-block" ng-disabled="frmAmount.$invalid" data-toggle="modal" data-target="#donateModal" ng-click="validateRemainder($event);" >Donate</button>
+															</div>
+															<div class="col-md-6">
+																<button type="button" class="btn btn-warning btn-md btn-block form-group" ng-click="showFullAmtBtn();">Cancel</button>
+															</div>															
+													</div>					
+											</div>									 									 
+								</div>
+								<div class="row">
+										<diV class="col-md-6 form-group" ng-show="amountFullToggle">
+												<button type="button" class="btn btn-info btn-md btn-block" data-toggle="modal" data-target="#donateModal" ng-click="makeFullAmount();">Donate Full Amount</button>
+										</diV>
+								</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <div class="modal fade" id="donateModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Comfirm Donation</h4>
+        </div>
+        <div class="modal-body">
+          <h2>Are you sure you want to continue donating <b>{{donateUser.amount_needed | currency : "R"}} </b>to <b>{{donateUser.name | capitalize}}</b> ?</h2>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" ng-click="donate();" data-dismiss="modal">Yes Donate</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="clearAmountInput();">No Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

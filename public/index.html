@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="theMoneyApp" ng-controller="indexCoverController">
+<head>
+  <!--This is what makes the code repsonsive, it sizes the controls so that they are the right size for the right screenb size-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!---->
+	<title>SignIn</title>
+    <link href="libs/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="">
+</head>
+<body>
+  <input type="checkbox" id="menuToggle">
+  <label  ng-show="isLoggedIn"  for="menuToggle" class="menu-icon">&#9776</label>
+
+  <header>
+   <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#/"><div id="brand">EasyBills</div></a>
+        </div>
+        <div class="col-md-8">
+           <li ng-show="isLoggedIn" class="user-menu"><a href="#"><span class="glyphicon glyphicon-user"></span>  {{currUser.name | capitalize}}</a></li>
+           <li ng-hide="isLoggedIn" class="user-menu"><a href="#/sign_in"><span class="glyphicon glyphicon-log-in"></span> Get Inside</a></li>
+           <li ng-show="isLoggedIn" class="user-menu"  ng-click="logout();"><a><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+        </div>
+      </div>
+   </div>
+
+  </header>
+  <nav class="menu" id="ish" ng-show="isLoggedIn">
+    <ul>
+       <li><a href="#/profile">Home</a></li>
+       <li><a href="#/how_to">How to</a></li>
+       <li><a href="#/donate/{{currUser._id}}">Donate</a></li>
+       <li><a href="#/transactions/{{currUser._id}}">Transactions</a></li>
+    </ul>
+  </nav>
+ 
+
+
+         <div ng-view="">
+        </div>                              
+
+  
+
+
+
+<script src="libs/jquery.min.js"></script>
+<script src="libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script src="libs/angular.min.js"></script>
+<script src="libs/angular-route.min.js"></script>
+<script src="libs/angular-messages.min.js"></script>
+<script src="libs/angular-sanitize.min.js"></script>
+<script src="libs/ui-bootstrap-2.0.0.min.js"></script>
+<script src="./js/client_app/app.js"></script>
+<script src="./js/client_app/controllers/user_controllers.js"></script>
+<script src="./js/client_app/controllers/donate_controllers.js"></script>
+<script src="./js/client_app/controllers/transaction_controllers.js"></script>
+<script src="./js/client_app/services/authenticate.service.js"></script>
+<script src="./js/client_app/services/capitalize.service.js"></script>
+<script src="./js/client_app/services/data.service.js"></script>
+<script src="./js/client_app/routes/routes.js"></script>
+<script src="./js/client_app/menu-toggle-script.js"></script>
+
+
+
+
+</body>
+
+</html>

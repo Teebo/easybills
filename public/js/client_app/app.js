@@ -1,0 +1,1 @@
+var theMoneyApp = angular.module('theMoneyApp',['ngRoute','ngMessages','ngSanitize','ui.bootstrap']);

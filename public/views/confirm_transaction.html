@@ -1,0 +1,18 @@
+<div class="container container-margin-top">
+<div class="row" ng-show="confirmStatus">
+	<div class="col-md-12">
+		<div id="title-row" class="row alert alert-success">
+				<li class="fa fa-check-circle fa-5x"></li><span style="font-size : 200%;"> Transaction was successful</span>
+		</div>	
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 well">
+		<h3>Are you sure you want to confirm transaction with {{transaction.donator_name}}</h3>
+		<h4 style="color:#fff;">Transaction amount : {{transaction.transaction_amount| currency : "R"}}</h4>
+<button type="button" class="btn btn-success btn-md btn-block" ng-click="confirmTransaction();">Confirm Transaction</button>
+<button type="button" class="btn btn-warning btn-md btn-block" ng-click="goBack();">Go Back</button>
+	</div>
+</div> 
+</div>

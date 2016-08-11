@@ -1,0 +1,46 @@
+<div class="container container-margin-top" >
+    <div class="row">
+            <div class="col-md-4 col-md-push-1" style="margin-bottom: 2%">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div class="btn-group" role="group">
+                    <a href="#/sign_in"><input type="button" value="Sign In"></a>
+                  </div>
+                  <div class="btn-group" role="group">
+                    <a href="#/sign_up"><input type="button" value="Sign Up"></a>
+                  </div>
+                </div>
+            </div>
+      </div>
+          <form name="userForm" ng-submit="submitForm(userForm)" novalidate>          
+            <div class="container">
+                  <div class="row" ng-show="showLoginError">                   
+                      <div id="title-row" class="row alert alert-danger">
+                           <div ng-bind-html="loginErrorMessage"></div>
+                      </div>               
+                  </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group" ng-class="{'has-error' : userForm.username.$invalid && userForm.username.$touched }">
+                    <input type="text" placeholder="Username" name="username" class="form-control" ng-model="loginUser.username" required>
+		                  <div class="help-block" ng-messages = "userForm.username.$error" ng-if="userForm.username.$touched">
+		                    <p ng-message="required">Username is required</p>
+		                  </div>                     
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-md-6 form-group" ng-class="{'has-error' : userForm.password.$invalid && userForm.password.$touched }">
+                     <input type="password" name="password" placeholder="Password" class="form-control" ng-model="loginUser.password" required>
+		                  <div class="help-block" ng-messages = "userForm.password.$error" ng-if="userForm.password.$touched">
+		                    <p ng-message="required">Password is required</p>
+		                  </div>  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-1">
+                    <input type="submit" ng-disabled="userForm.$invalid" value="Submit">
+                  </div>                
+                </div>                
+                 </div>           
+             </form> 
+
+</div>

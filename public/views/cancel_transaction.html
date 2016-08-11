@@ -1,0 +1,17 @@
+<div class="container container-margin-top">
+<div class="row" ng-show="cancelStatus">
+	<div class="col-md-12">
+		<div id="title-row" class="row alert alert-success">
+				<li class="fa fa-check-circle fa-5x"></li><span style="font-size : 200%;"> {{alertMessage}}</span>
+		</div>	
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 well">
+		<h3>Are you sure you want to permanently cancel the transaction?</h3>
+		<button type="button" class="btn btn-danger btn-md btn-block" ng-click="cancelTransaction();">Cancel Permanently</button>
+	</div>
+
+</div>
+</div>
