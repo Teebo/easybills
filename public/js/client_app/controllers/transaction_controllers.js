@@ -1,5 +1,6 @@
 theMoneyApp
-			.controller('transactionController',function($scope,$http,$routeParams,authenticate,$window,$location){
+			.controller('transactionController',function($rootScope,$scope,$http,$routeParams,authenticate,$window,$location){
+				$rootScope.title = "Transactions";
 				$http.get('https://easybillssa.herokuapp.com/transactions/' + $routeParams._id)
 					 .success(function(res){
 					 	console.log("Successfully fetched transactions");
@@ -21,8 +22,8 @@ theMoneyApp
 
 
 			})
-			 .controller('cancelTransactionController',function($scope,$http,$routeParams,authenticate,$window){
-
+			 .controller('cancelTransactionController',function($rootScope,$scope,$http,$routeParams,authenticate,$window){
+				 	$rootScope.title = "Cancel Transaction";
 					$scope.transID = $routeParams.transactionID;
 					 $scope.cancelTransaction = function(){
 					 	$http.delete('https://easybillssa.herokuapp.com/transactions/cancel/' + $routeParams.transactionID)
@@ -94,8 +95,9 @@ theMoneyApp
 
 					 };
 			})*/
-			 .controller('confirmTransactionController',function($scope,$http,$routeParams,authenticate,$window,$httpParamSerializerJQLike,$location){
-			 	$http.get('https://easybillssa.herokuapp.com/confirm/transaction/' + $routeParams.transID)
+			 .controller('confirmTransactionController',function($rootScope,$scope,$http,$routeParams,authenticate,$window,$httpParamSerializerJQLike,$location){
+			 	 $rootScope.title = "Confirm Transaction";
+				 $http.get('https://easybillssa.herokuapp.com/confirm/transaction/' + $routeParams.transID)
 			 		 .success(function(res){
 			 		 	console.log(res);
 

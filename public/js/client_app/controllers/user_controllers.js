@@ -1,9 +1,9 @@
 theMoneyApp
-		  .controller('indexCoverController',function($scope,authenticate){
+		  .controller('indexCoverController',function($rootScope,$scope,authenticate){
            		  	$scope.logout = function(){
 		  		authenticate.logout();
 		  	}    	  		
-
+				$rootScope.title = "EasyBills-SA";
 		  })
 		  .controller('signInController',function($scope,$http,$location,authenticate){
 		  		$scope.submitForm = function(){
@@ -57,8 +57,8 @@ theMoneyApp
 	  				 
 		  		};
 		  })
-		  .controller('profileController',function($scope,$http,$location,profileData,authenticate){
-
+		  .controller('profileController',function($rootScope,$scope,$http,$location,profileData,authenticate){
+				$rootScope.title = "Dashboard";
 		  	$scope.logout = function(){
 		  		authenticate.logout();
 		  	}
@@ -90,8 +90,8 @@ theMoneyApp
 
 		  	 			
 		  })
-		  .controller('howToController',function($scope){
-
+		  .controller('howToController',function($rootScope,$scope){
+					$rootScope.title = "How To";
 		  		$scope.hey = "Hey how to";
 		  })
 

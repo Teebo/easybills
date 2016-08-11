@@ -1,7 +1,7 @@
 var mm;
 theMoneyApp
-   		.controller('donateController',function($scope,$http,authenticate,$location,$routeParams){
-                                 
+   		.controller('donateController',function($rootScope,$scope,$http,authenticate,$location,$routeParams){
+                    $rootScope.title = "Donations";         
    			  $http.get('https://easybillssa.herokuapp.com/donate/' + $routeParams.currUserID)
                    .success(function(res){
                         console.log("successfully returned donations");
@@ -15,10 +15,7 @@ theMoneyApp
 
    		})
    		.controller('donateToController',function($rootScope,$scope,$http,$location,authenticate,capitaliseString,$routeParams,$httpParamSerializerJQLike){
-                     
-                    
-
-                     
+                     $rootScope.title = "Donate - To";                
                      $scope.amountFullToggle = true;
                      $scope.showAmountBlock = function(){
                            $scope.amountInputs = true;
