@@ -2,7 +2,7 @@ var mm;
 theMoneyApp
    		.controller('donateController',function($scope,$http,authenticate,$location,$routeParams){
                                  
-   			  $http.get('http://127.0.0.1:3000/donate/' + $routeParams.currUserID)
+   			  $http.get('https://easybillssa.herokuapp.com/donate/' + $routeParams.currUserID)
                    .success(function(res){
                         console.log("successfully returned donations");
                         $scope.donateUsers = res;
@@ -89,7 +89,7 @@ theMoneyApp
                           $scope.checkCurrentUser = true;
                         }else{
 
-                              $http.get('http://127.0.0.1:3000/donate_to/' + $routeParams.user_id)
+                              $http.get('https://easybillssa.herokuapp.com/donate_to/' + $routeParams.user_id)
                               .success(function(res){
                                     console.log("successfully returned donation user");
                                     $scope.donateUser = res;

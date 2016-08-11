@@ -1,6 +1,6 @@
 theMoneyApp
 			.controller('transactionController',function($scope,$http,$routeParams,authenticate,$window,$location){
-				$http.get('http://127.0.0.1:3000/transactions/' + $routeParams._id)
+				$http.get('https://easybillssa.herokuapp.com/transactions/' + $routeParams._id)
 					 .success(function(res){
 					 	console.log("Successfully fetched transactions");
 					 	console.log(res);
@@ -25,7 +25,7 @@ theMoneyApp
 
 					$scope.transID = $routeParams.transactionID;
 					 $scope.cancelTransaction = function(){
-					 	$http.delete('http://127.0.0.1:3000/transactions/cancel/' + $routeParams.transactionID)
+					 	$http.delete('https://easybillssa.herokuapp.com/transactions/cancel/' + $routeParams.transactionID)
 					 		 .success(function(res){
 					 		 	console.log(res);
 								  $scope.cancelStatus = "true"
@@ -91,7 +91,7 @@ theMoneyApp
 					 };
 			})*/
 			 .controller('confirmTransactionController',function($scope,$http,$routeParams,authenticate,$window,$httpParamSerializerJQLike,$location){
-			 	$http.get('/confirm/transaction/' + $routeParams.transID)
+			 	$http.get('https://easybillssa.herokuapp.com/confirm/transaction/' + $routeParams.transID)
 			 		 .success(function(res){
 			 		 	console.log(res);
 
@@ -106,12 +106,12 @@ theMoneyApp
 
 					 $scope.currentRouteParam = $routeParams.transID;
 			 		 $scope.confirmTransaction = function(){
-			 		 	$http.post('/confirm/transaction/new_donatee/' + $scope.transaction.donator_id,$httpParamSerializerJQLike({donatorUser : $scope.donatorUser,transaction : $scope.transaction}))
+			 		 	$http.post('https://easybillssa.herokuapp.com/confirm/transaction/new_donatee/' + $scope.transaction.donator_id,$httpParamSerializerJQLike({donatorUser : $scope.donatorUser,transaction : $scope.transaction}))
 			 		 		 .success(function(res){
 			 		 		 	console.log(res)
 								$scope.confirmStatus = true;
 
-								$http.delete('/delete_success/transaction/' + $scope.currentRouteParam)
+								$http.delete('https://easybillssa.herokuapp.com/delete_success/transaction/' + $scope.currentRouteParam)
 									.success(function(res){
 										console.log(res);
 									})
