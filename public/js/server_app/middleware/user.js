@@ -94,29 +94,29 @@ exports.signUpUser = function(req,res){
 
 exports.signInUser = function(req,res){
 
-// var currDate = new Date();
-// currDate.setHours(currDate.getHours() + 2);
-// var newDonation = new Donation({
-//       "name" : "Thabo	",
-//       "user_id" : "57abe409f63860c017ee1534",
-//       "surname" : "Ngubane",
-//       "email" : "ngubanethabo@gmail.com",
-//       "contact_number" : "0786190064",
-//       "bank" : "FNB",
-//       "account_number" : "2545845555",
-//       "account_holder" : "Himself",
-//       "amount_needed" : "3000",
-//       "time_posted" : currDate
-// });
+var currDate = new Date();
+currDate.setHours(currDate.getHours() + 2);
+var newDonation = new Donation({
+      "name" : "Thabo	",
+      "user_id" : "57abe409f63860c017ee1534",
+      "surname" : "Ngubane",
+      "email" : "ngubanethabo@gmail.com",
+      "contact_number" : "0786190064",
+      "bank" : "FNB",
+      "account_number" : "2545845555",
+      "account_holder" : "Himself",
+      "amount_needed" : "3000",
+      "time_posted" : currDate
+});
 
 
-// newDonation.save(function(err){
-//    if(err){
-//       throw err;
-//    }
+newDonation.save(function(err){
+   if(err){
+      throw err;
+   }
 
-//    console.log("Donated successfully");
-// });
+   console.log("Donated successfully");
+});
 //mmm
 	console.log("Received login request");
 	//If user is defined then it can be used to generate a JWT to be returned to the browser.
