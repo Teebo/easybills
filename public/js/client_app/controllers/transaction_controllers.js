@@ -21,7 +21,7 @@ theMoneyApp
 
 
 			})
-			 .controller('cancelTransactionController',function($scope,$http,$routeParams,authenticate){
+			 .controller('cancelTransactionController',function($scope,$http,$routeParams,authenticate,$window){
 
 					$scope.transID = $routeParams.transactionID;
 					 $scope.cancelTransaction = function(){
