@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!---->
-	<title ng-bind="$root.title">{{title}}</title>
+	<title ng-bind="$root.title"></title>
     <link href="libs/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
@@ -76,7 +76,7 @@
         </div>
         <div class="col-md-8">
            <li ng-show="isLoggedIn" class="user-menu"><a href="#"><span class="glyphicon glyphicon-user"></span>  {{currUser.name | capitalize}}</a></li>
-           <li ng-hide="isLoggedIn" class="user-menu"><a href="#/sign_in"><span class="glyphicon glyphicon-log-in"></span> Get Inside</a></li>
+           <li ng-hide="isLoggedIn" class="user-menu"><a href="/sign_in"><span class="glyphicon glyphicon-log-in"></span> Get Inside</a></li>
            <li ng-show="isLoggedIn" class="user-menu"  ng-click="logout();"><a><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
         </div>
       </div>
