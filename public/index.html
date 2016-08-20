@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="theMoneyApp" ng-controller="indexCoverController">
-<head>
+<head ng-cloak>
   <!--This is what makes the code repsonsive, it sizes the controls so that they are the right size for the right screenb size-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!---->
-	<title>{{title}}</title>
+	<title ng-bind="$root.title">{{title}}</title>
     <link href="libs/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
@@ -85,10 +85,10 @@
   </header>
   <nav class="menu" id="ish" ng-show="isLoggedIn">
     <ul>
-       <li><a href="#/profile">Home</a></li>
-       <li><a href="#/how_to">How to</a></li>
-       <li><a href="#/donate/{{currUser._id}}">Donate</a></li>
-       <li><a href="#/transactions/{{currUser._id}}">Transactions</a></li>
+       <li><a href="/profile">Home</a></li>
+       <li><a href="/how_to">How to</a></li>
+       <li><a href="/donate/{{currUser._id}}">Donate</a></li>
+       <li><a href="/transactions/{{currUser._id}}">Transactions</a></li>
     </ul>
   </nav>
  

@@ -50,7 +50,7 @@ theMoneyApp
 						  })
 
 						  //use the HTML5 history API
-						  //$locationProvider.html5Mode(true);
+						  $locationProvider.html5Mode({enabled : true,requireBase:false});
 
 		}).run(['$rootScope', '$location', 'authenticate',function($rootScope,$location,authenticate){
 				$rootScope.$on('$routeChangeStart',function(event,nextRoute,currentRoute){
