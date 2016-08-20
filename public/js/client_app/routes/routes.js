@@ -17,7 +17,7 @@ theMoneyApp
 						  	templateUrl : 'views/signup.html',
 						  	controller : 'signUpController'
 						  })
-						  .when('/profile',{
+						  .when('/dashboard',{
 						  	templateUrl : 'views/profile.html',
 						  	controller : 'profileController'
 						  })
@@ -54,7 +54,7 @@ theMoneyApp
 
 		}).run(['$rootScope', '$location', 'authenticate',function($rootScope,$location,authenticate){
 				$rootScope.$on('$routeChangeStart',function(event,nextRoute,currentRoute){
-							if($location.path() === '/profile' && !authenticate.isLoggedIn()){
+							if($location.path() === '/dashboard' && !authenticate.isLoggedIn()){
 								$location.path('/');
 
 								// $rootScope.title = currentRoute.$$route.isLoggedIn;

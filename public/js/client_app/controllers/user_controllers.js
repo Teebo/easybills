@@ -11,7 +11,7 @@ theMoneyApp
 		  				 .success(function(res){
 		  				 	console.log("Recieved login response"+ res.token);
 		  				 	authenticate.saveToken(res.token);
-		  				 	$location.path('/profile');
+		  				 	$location.path('/dashboard');
 		  				 })
 		  				 .error(function(err){
 		  				 	console.error("There was an error login in the use " + err.message);
@@ -47,7 +47,7 @@ theMoneyApp
 								$scope.userForm.$setUntouched();
 								$scope.userForm = {};									 
 		  				 	console.log(res.token);
-		  				 	$location.path('/profile');
+		  				 	$location.path('/dashboard');
 		  				 })
 		  				 .error(function(err){
 								 $scope.duplicateValidator = true;

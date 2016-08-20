@@ -75,7 +75,7 @@ app.get('/',function(req,res){
 });
 app.post('/sign_up',users.signUpUser);
 app.post('/sign_in',users.signInUser);
-app.get('/profile',auth,users.profile);
+app.get('/dashboard',auth,users.profile);
 app.get('/donate/:currUserID',donations.getDonationUsers);
 app.get('/donate_to/:user_id',donations.getDonationUser);
 app.post('/transaction',transactions.createTransaction);
